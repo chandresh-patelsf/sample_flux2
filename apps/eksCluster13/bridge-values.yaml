@@ -7,7 +7,7 @@ metadata:
     app: site1pool1bridge1
 spec:
   serviceName: "site1pool1bridge1"
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: site1pool1bridge1
@@ -21,6 +21,6 @@ spec:
               value: "chandresh.patel@tableau.com"
             - name: SERVERPOD
               value: "https://prod-useast-a.online.tableau.com/"
-          image: 010465704656.dkr.ecr.us-west-2.amazonaws.com/tableau_bridge:near.23.0110.0804-4
+          image: 010465704656.dkr.ecr.us-west-2.amazonaws.com/tableau_bridge:near.23.0110.0804-5
           name: site1pool1bridge1
   
