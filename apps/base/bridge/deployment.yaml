@@ -43,11 +43,44 @@ spec:
           volumeMounts:
             - name: secret
               mountPath: "/etc/secret"
+            - name: varlog
+              mountPath: /root/Documents/My_Tableau_Bridge_Repository_Beta/Logs
           resources: {}
           imagePullPolicy: IfNotPresent
+        - name: fluent-bit
+          image: amazon/aws-for-fluent-bit:2.14.0
+          env:
+              - name: HOST_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: spec.nodeName
+              - name: POD_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.name
+              - name: POD_NAMESPACE
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.namespace
+          resources:
+              limits:
+                memory: 200Mi
+              requests:
+                cpu: 200m
+                memory: 100Mi
+          volumeMounts:
+            - name: fluent-bit-bridge-config
+              mountPath: /fluent-bit/etc/
+            - name: varlog
+              mountPath: /root/Documents/My_Tableau_Bridge_Repository_Beta/Logs
+              readOnly: true
       volumes:
         - name: secret
           secret:
             secretName: bridgesecret
             optional: false
-  
+        - name: fluent-bit-bridge-config
+          configMap:
+            name: fluent-bit-bridge-config
+        - name: varlog
+          emptyDir: {}
