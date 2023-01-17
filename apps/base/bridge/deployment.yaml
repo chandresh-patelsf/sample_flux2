@@ -30,6 +30,7 @@ spec:
       labels:
         app: site1pool1bridge1
     spec:
+      serviceAccountName: bridgesa
       containers:
         - env:
             - name: SITE
