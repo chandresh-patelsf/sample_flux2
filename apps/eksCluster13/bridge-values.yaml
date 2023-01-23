@@ -7,7 +7,7 @@ metadata:
     app: site1pool1bridge1
 spec:
   serviceName: "site1pool1bridge1"
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: site1pool1bridge1
