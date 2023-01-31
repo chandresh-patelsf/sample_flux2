@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: site1pool1bridge1
+  namespace: tableau
+  labels:
+    app: site1pool1bridge1
+spec:
+  serviceName: "site1pool1bridge1"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: site1pool1bridge1
+  template:
+    spec:
+      containers:
+        - env:
+            - name: SITE
+              value: "chandreshsandbox4"
+            - name: USEREMAIL
+              value: "chandresh.patel@tableau.com"
+            - name: SERVERPOD
+              value: "https://prod-useast-a.online.tableau.com/"
+          image: 010465704656.dkr.ecr.us-west-2.amazonaws.com/tableau_bridge:near.22.1117.1328-1
+          name: site1pool1bridge1
+  
