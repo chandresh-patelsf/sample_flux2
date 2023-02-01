@@ -1,34 +1,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: site1pool1bridge1
-  namespace: tableau
+  name: bridge
   labels:
-    app: site1pool1bridge1
+    app: bridge
 spec:
   clusterIP: None
   selector:
-    app: site1pool1bridge1
+    app: bridge
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: site1pool1bridge1
-  namespace: tableau
+  name: bridge
   labels:
-    app: site1pool1bridge1
+    app: bridge
 spec:
-  serviceName: "site1pool1bridge1"
+  serviceName: bridge
   replicas: 1
   updateStrategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: site1pool1bridge1
+      app: bridge
   template:
     metadata:
       labels:
-        app: site1pool1bridge1
+        app: bridge
     spec:
       serviceAccountName: bridgesa
       containers:
@@ -40,14 +38,12 @@ spec:
             - name: SERVERPOD
               value: "changeme"
           image: changeme
-          name: site1pool1bridge1
+          name: bridge
           volumeMounts:
             - name: secret
               mountPath: "/etc/secret"
             - name: varlog
               mountPath: /root/Documents/My_Tableau_Bridge_Repository_Beta/Logs
-          resources: {}
-          imagePullPolicy: IfNotPresent
         - name: fluent-bit
           image: amazon/aws-for-fluent-bit:2.14.0
           env:
