@@ -6,7 +6,7 @@ metadata:
     app: pat_client
 spec:
   concurrencyPolicy: Forbid
-  schedule: "0 0 * * *"
+  schedule: "5 0 * * *"
   startingDeadlineSeconds: 600
   jobTemplate:
     spec:
