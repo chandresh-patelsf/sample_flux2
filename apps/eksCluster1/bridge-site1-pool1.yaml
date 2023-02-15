@@ -4,7 +4,7 @@ metadata:
   name: not-used
 spec:
   serviceName: bridge-site1-pool1
-  replicas: 5
+  replicas: 1
   template:
     spec:
       containers:
