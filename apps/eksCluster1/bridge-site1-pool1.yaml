@@ -10,12 +10,12 @@ spec:
       containers:
         - env:
             - name: SITE
-              value: "chandreshsandbox4"
+              value: "chandreshcdnear1"
             - name: USEREMAIL
               value: "chandresh.patel@tableau.com"
             - name: SERVERPOD
-              value: "https://prod-useast-a.online.tableau.com/"
+              value: "https://cd-near.online.dev.tabint.net/"
             - name: POOLID
-              value: "098a1d20-fe73-413d-a72d-ef73b61c61d3"  
+              value: "52d97456-48d5-4109-be29-8ca24f9b69fb"  
           image: 010465704656.dkr.ecr.us-west-2.amazonaws.com/bridge:latest
           name: bridge
