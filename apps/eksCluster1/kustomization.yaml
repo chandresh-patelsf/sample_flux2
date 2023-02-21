@@ -13,7 +13,7 @@ patches:
     target:
       kind: StatefulSet
       labelSelector: app=bridge-site1-pool1
-#  - path: bridge-site2-pool1.yaml
-#    target:
-#      kind: StatefulSet
-#      labelSelector: app=bridge-site2-pool1
+  - path: bridge-site2-pool1.yaml
+    target:
+      kind: StatefulSet
+      labelSelector: app=bridge-site2-pool1
