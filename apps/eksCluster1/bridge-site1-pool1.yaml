@@ -14,7 +14,7 @@ spec:
             - name: USEREMAIL
               value: "chandresh.patel@tableau.com"
             - name: SERVERPOD
-              value: "https://cd-near.online.dev.tabint.net/"
+              value: "https://online.dev.tabint.net/"
             - name: POOLID
               value: "52d97456-48d5-4109-be29-8ca24f9b69fb"  
           image: 010465704656.dkr.ecr.us-west-2.amazonaws.com/bridge:latest
